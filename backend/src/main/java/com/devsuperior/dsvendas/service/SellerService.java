@@ -1,8 +1,8 @@
-package com.devsuperios.dsvendas.service;
+package com.devsuperior.dsvendas.service;
 
-import com.devsuperios.dsvendas.DTO.SellerDTO;
-import com.devsuperios.dsvendas.entities.Seller;
-import com.devsuperios.dsvendas.repositories.SallerRepository;
+import com.devsuperior.dsvendas.DTO.SellerDTO;
+import com.devsuperior.dsvendas.entities.Seller;
+import com.devsuperior.dsvendas.repositories.SallerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.devsuperios.dsvendas.entities;
+package com.devsuperior.dsvendas.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
