@@ -1,6 +1,6 @@
 const DataTable = () => {
     return (
-      <>
+      
         <div className="table-responsive">
     <table className="table table-striped table-sm">
         <thead>
@@ -121,7 +121,7 @@ const DataTable = () => {
     </table>
 </div>
   
-      </>
+     
     );
   }
   
