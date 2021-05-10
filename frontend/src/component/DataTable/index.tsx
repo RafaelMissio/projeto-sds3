@@ -1,11 +1,13 @@
 import axios from "axios";
+import Pagination from "component/Pagination";
 import { useEffect, useState } from "react";
 import { SalePage } from "types/sales";
-import { isTemplateExpression } from "typescript";
 import { formatLocalDate } from "utils/format";
 import {BASE_URL} from 'utils/requests';
 
 const DataTable = () => {
+
+    const[activePage, setActivePage] = useState(0);
 
     const[page, setPage] = useState<SalePage>({
         first: true,
@@ -15,19 +17,25 @@ const DataTable = () => {
         totalPages: 0
     })
 useEffect(() => {
-    axios.get(`${BASE_URL}/sales?page=1&size=10&sort=date,desc`)
+    axios.get(`${BASE_URL}/sales?page=${activePage}&size=20&sort=date,desc`)
     .then(response => {
         setPage(response.data);
     })
-}, [])
+}, [activePage])
 
+const changePage = (index : number) =>{
+    setActivePage(index);
+}
 
     return (
-      
+
+        <>
+       
         <div className="table-responsive">
+        <Pagination page={page} onPageChange ={changePage} />
     <table className="table table-striped table-sm">
         <thead>
-            <tr >
+            <tr>
                 <th>Data</th>
                 <th>Vendedor</th>
                 <th>Clientes visitados</th>
@@ -37,7 +45,7 @@ useEffect(() => {
         </thead>
         <tbody>
             {page.content?.map(item => (
-                <tr key={item.id}>
+                <tr>
                     <td>{formatLocalDate(item.date, "dd/MM/yyyy")}</td>
                     <td>{item.seller.name}</td>
                     <td>{item.visited}</td>
@@ -46,15 +54,11 @@ useEffect(() => {
                 </tr>
             ))}
             
-                
-                
-            
-
         </tbody>
     </table>
 </div>
   
-     
+    </> 
     );
   }
   
