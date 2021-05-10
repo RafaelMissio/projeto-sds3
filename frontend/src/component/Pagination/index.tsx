@@ -1,4 +1,4 @@
-import { type } from "os";
+
 import { SalePage } from "types/sales";
 
 
